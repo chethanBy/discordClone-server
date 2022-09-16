@@ -34,11 +34,10 @@ mongoose
   .connect(process.env.MONGO)
   .then(() => {
     console.log("connected to DB");
+    server.listen(PORT, () => console.log(`listening at ${PORT}`));
   })
   .catch((err) => {});
 
 app.get("/", auth, (req, res) => {
   res.send("hello");
 });
-
-server.listen(PORT, () => console.log(`listening at ${PORT}`));
