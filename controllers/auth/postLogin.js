@@ -28,7 +28,7 @@ const login = async (req, res) => {
     }
     return res.status(400).send("Invalid credentials. Please try again");
   } catch (error) {
-    return res.status(500).send("error occured.please try again later");
+    return res.status(500).json(error);
   }
 };
 
