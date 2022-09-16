@@ -33,10 +33,12 @@ socketServer.registerSocketServer(server);
 mongoose
   .connect(process.env.MONGO)
   .then(() => {
-    server.listen(PORT, () => console.log(`listening at ${PORT}`));
+    console.log("connected to DB");
   })
   .catch((err) => {});
 
 app.get("/", auth, (req, res) => {
   res.send("hello");
 });
+
+server.listen(PORT, () => console.log(`listening at ${PORT}`));
